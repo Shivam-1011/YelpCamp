@@ -66,7 +66,7 @@ router.get("/:id", function(req, res){
 router.get("/:id/edit", middleware.checkOwnership, function(req, res){
 		Campground.findById(req.params.id, function(err, foundCampground){
 			if(err){
-				req.flash("error", "You nedd to be logged in to do that!");
+				req.flash("error", "You need to be logged in to do that!");
 				res.redirect("back");
 			}else{
 				res.render("campgrounds/edit", {campground : foundCampground});
