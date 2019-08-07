@@ -19,7 +19,7 @@ var commentRoutes    = require("./routes/comments"),
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
 app.set("view engine", "ejs");
-mongoose.connect("mongodb://localhost/yelp_camp");
+mongoose.connect("mongodb+srv://shivam97:<shivam101197>@cluster0-p0m8m.mongodb.net/yelp_camp?retryWrites=true&w=majority");
 app.use(express.static(__dirname + "/public"));
 app.use(flash());
 app.locals.moment = require("moment-timezone");
