@@ -46,6 +46,7 @@ app.use(function(req, res, next){
 	next();
 });
 
+//Some changes for git commit
 app.use(indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
