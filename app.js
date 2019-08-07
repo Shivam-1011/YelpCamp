@@ -1,4 +1,3 @@
-require('dotenv').config();
 var express         = require('express'),
     app 		    = express(),
     bodyParser      = require("body-parser"),
@@ -14,12 +13,14 @@ var express         = require('express'),
 
 var commentRoutes    = require("./routes/comments"),
 	campgroundRoutes = require("./routes/campgrounds"),
-	indexRoutes      = require("./routes/index");  
+	indexRoutes      = require("./routes/index"); 
+
+var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp"
+mongoose.connect(url);
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
 app.set("view engine", "ejs");
-mongoose.connect(process.env.DATABASEURL);
 app.use(express.static(__dirname + "/public"));
 app.use(flash());
 app.locals.moment = require("moment-timezone");
