@@ -13,7 +13,7 @@ router.get("/register", function(req, res){
 	res.render("register", {page : 'register'});
 });
 
-//handle Signup logic
+//handle Signup Logic
 router.post("/register", function(req, res){
 	var newUser= new User({username: req.body.username});
 	if(req.body.adminCode === process.env.SECRET_CODE){
